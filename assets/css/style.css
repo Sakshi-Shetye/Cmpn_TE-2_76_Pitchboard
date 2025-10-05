@@ -1,0 +1,95 @@
+/* assets/css/style.css */
+
+:root{
+  --bg1: #f8f9ff;
+  --accent1: #aef0d1;
+  --accent2: #ffd6e0;
+  --glass: rgba(255,255,255,0.06);
+  --glass-strong: rgba(255,255,255,0.12);
+  --muted: #6b7280;
+}
+
+* { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body {
+  background: linear-gradient(135deg, #fff7f0 0%, #f0fbff 45%, #faf6ff 100%);
+  min-height: 100vh;
+  color: #111827;
+}
+
+/* Navbar */
+.navbar {
+  background: transparent;
+}
+
+.logo-circle {
+  background: linear-gradient(135deg,#ffecd2,#fcb69f);
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  font-size:22px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.brand-text { line-height:1; }
+.brand-text .tag { font-size:11px; color:var(--muted); margin-top:4px; }
+
+/* Glass card */
+.card-glass{
+  background: linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.5));
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(2,6,23,0.04);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+/* badges & small items */
+.badge-cat {
+  background: linear-gradient(90deg,#e6f9ff,#f4e9ff);
+  color: #0f172a;
+  padding:6px 10px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:600;
+  box-shadow: 0 6px 12px rgba(99,102,241,0.06);
+}
+
+/* buttons */
+.btn-pill { border-radius: 9999px; padding:10px 18px; }
+.btn-like {
+  background: transparent;
+  border: 0;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.btn-like i { font-size:18px; color:#ef4444; transform:translateY(1px); }
+.like-count { font-weight:700; margin-left:6px; color:#111827; }
+
+/* inputs */
+.form-input {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(12,12,12,0.04);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(12,12,12,0.02);
+}
+
+/* section titles */
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* comment items */
+.comment-item { background: rgba(255,255,255,0.6); border-radius:8px; }
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+  .logo-circle { width:40px; height:40px; font-size:18px; }
+  .brand-text .tag { display:none; }
+}
