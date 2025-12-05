@@ -1,7 +1,6 @@
 <?php
 require_once 'db_connect.php';
 include 'header.php';
-
 // Fetch trending (top 3 by likes)
 $trending_stmt = $conn->prepare("SELECT id, title, description, category, likes, created_at FROM ideas ORDER BY likes DESC, created_at DESC LIMIT 3");
 $trending_stmt->execute();
@@ -21,13 +20,11 @@ if (!empty($trending_ids)) {
 $stmt->execute();
 $ideas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 ?>
-
 <?php if (!empty($_SESSION['success'])): ?>
   <div class="alert alert-success rounded-pill px-4 py-2">
     <?php echo htmlspecialchars($_SESSION['success']); unset($_SESSION['success']); ?>
   </div>
 <?php endif; ?>
-
 <!-- Trending -->
 <?php if (!empty($trending)): ?>
   <div class="mb-4">
@@ -58,7 +55,6 @@ $ideas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     </div>
   </div>
 <?php endif; ?>
-
 <!-- All Ideas -->
 <div>
   <h5 class="section-title">All Ideas</h5>
@@ -71,7 +67,6 @@ $ideas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         </div>
       </div>
     <?php endif; ?>
-
     <?php foreach($ideas as $idea): ?>
       <div class="col-md-4">
         <div class="card card-glass h-100">
@@ -80,9 +75,7 @@ $ideas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
               <h6 class="card-title mb-1"><?php echo htmlspecialchars($idea['title']); ?></h6>
               <span class="badge badge-cat"><?php echo htmlspecialchars($idea['category']); ?></span>
             </div>
-
             <p class="card-text text-muted mb-3"><?php echo htmlspecialchars(mb_strimwidth($idea['description'], 0, 140, '...')); ?></p>
-
             <div class="mt-auto d-flex justify-content-between align-items-center">
               <a href="view_idea.php?id=<?php echo $idea['id']; ?>" class="btn btn-sm btn-outline-primary">View</a>
               <div>
@@ -96,9 +89,7 @@ $ideas = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         </div>
       </div>
     <?php endforeach; ?>
-
   </div>
 </div>
-
 <?php
 include 'footer.php';

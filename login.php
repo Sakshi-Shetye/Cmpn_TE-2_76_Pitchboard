@@ -1,7 +1,6 @@
 <?php
 session_start();
 include 'db_connect.php'; // Your DB connection file
-
 if(isset($_POST['login'])){
     $email = $_POST['email'];
     $password = $_POST['password'];

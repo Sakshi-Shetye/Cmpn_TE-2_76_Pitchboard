@@ -1,12 +1,10 @@
 <?php
 session_start();
 include 'db_connect.php'; // Your DB connection file
-
 if(isset($_POST['signup'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-
     // Check if email exists
     $check = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
     if(mysqli_num_rows($check) > 0){

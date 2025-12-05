@@ -1,4 +1,3 @@
-// assets/js/main.js
 $(function(){
   // Like button click
   $(document).on('click', '.like-btn', function(e){
@@ -22,14 +21,12 @@ $(function(){
       setTimeout(()=>btn.prop('disabled', false), 700);
     });
   });
-
   // Submit comment via AJAX
   $('#comment-form').on('submit', function(e){
     e.preventDefault();
     const ideaId = $(this).data('idea');
     const commentText = $('#comment_text').val().trim();
     if (!commentText) return alert('Please write a comment.');
-
     $.post('add_comment.php', { idea_id: ideaId, comment_text: commentText }, function(resp){
       if (resp.success) {
         // Prepend new comment
@@ -42,6 +39,4 @@ $(function(){
       }
     }, 'json').fail(function(){
       alert('Network error while posting comment.');
-    });
-  });
-});
+    });});});

@@ -1,7 +1,6 @@
 <?php
 require_once 'db_connect.php';
 header('Content-Type: application/json');
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idea_id'], $_POST['comment_text'])) {
     $idea_id = intval($_POST['idea_id']);
     $comment_text = trim($_POST['comment_text']);
@@ -11,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idea_id'], $_POST['co
         echo json_encode(['success'=>false, 'message'=>'Invalid input']);
         exit;
     }
-
     $stmt = $conn->prepare("INSERT INTO comments (idea_id, comment_text, date_posted) VALUES (?, ?, ?)");
     $stmt->bind_param('iss', $idea_id, $comment_text, $date_posted);
 
